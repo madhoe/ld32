@@ -1,17 +1,19 @@
 package;
 
 import flixel.FlxG;
-import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.text.FlxText;
-import flixel.ui.FlxButton;
-import flixel.math.FlxMath;
 
 /**
  * A FlxState which can be used for the game's menu.
  */
 class MenuState extends FlxState
 {
+	
+	private var text:FlxText;
+	private var help:FlxText;
+	private var count:Int = 0;
+	
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
@@ -19,7 +21,12 @@ class MenuState extends FlxState
 	{
 		super.create();
 		
-		FlxG.switchState(new PlayState());
+		text = new FlxText(0, 0, 320, "KEYS", 24);
+		add(text);
+		
+		help = new FlxText(0, 240 - 16, 320, "ANY KEY TO START", 12);
+		help.alignment = "right";
+		add(help);
 	}
 	
 	/**
@@ -29,6 +36,8 @@ class MenuState extends FlxState
 	override public function destroy():Void
 	{
 		super.destroy();
+		
+		text = help = null;
 	}
 
 	/**
@@ -37,5 +46,37 @@ class MenuState extends FlxState
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
+		
+		if (FlxG.keys.justPressed.ANY)
+		{
+			if (count == 0)
+			{
+				FlxG.camera.shake(0.01, 0.1);
+				text.text += "\nTHE BOARD";
+				help.text = "ANY KEY TO START!";
+			}
+			if (count == 1)
+			{
+				FlxG.camera.shake(0.015, 0.11);
+				text.text += "\nTHE DANCE";
+				help.text = "PRESS ANY KEY TO START!!";
+			}
+			if (count == 2)
+			{
+				FlxG.camera.shake(0.02, 0.12);
+				text.text += "\nTHE BATTLE";
+				help.text = "I SAID PRESS ANY KEY TO START!!!";
+			}
+			if (count == 3)
+			{
+				FlxG.camera.shake(0.025, 0.13);
+				text.text += "\nTHE GAME";
+				help.text = "SMASH THE FUCKING KEYBOARD!!!!";
+			}
+			if (count == 4)
+				FlxG.switchState(new PlayState());
+				
+			count++;
+		}
 	}
 }

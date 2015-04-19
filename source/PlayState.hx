@@ -3,9 +3,7 @@ package;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
-import flixel.text.FlxText;
-import flixel.ui.FlxButton;
-import flixel.math.FlxMath;
+import flixel.util.FlxSpriteUtil;
 
 /**
  * A FlxState which can be used for the actual gameplay.
@@ -18,22 +16,23 @@ class PlayState extends FlxState
 	override public function create():Void
 	{
 		super.create();
-	}
-	
-	/**
-	 * Function that is called when this state is destroyed - you might want to 
-	 * consider setting all objects this state uses to null to help garbage collection.
-	 */
-	override public function destroy():Void
-	{
-		super.destroy();
-	}
-
-	/**
-	 * Function that is called once every frame.
-	 */
-	override public function update(elapsed:Float):Void
-	{
-		super.update(elapsed);
+		
+		var spr:FlxSprite = new FlxSprite();
+		spr.loadGraphic(AssetPaths.keyboard__png);
+		spr.origin.set(0, 0);
+		spr.scale.set(2, 2);
+		add(spr);
+		
+		add(new DanceBattleGame());
+		
+		add(new Fist());
+		
+		FlxG.camera.pixelPerfectRender = false;
+		
+		spr = new FlxSprite();
+		spr.makeGraphic(5, 5, 0x0);
+		FlxSpriteUtil.drawCircle(spr, -1, -1, -1, 0x44ffffff);
+		
+		FlxG.mouse.load(spr.pixels);
 	}
 }
