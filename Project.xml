@@ -29,7 +29,12 @@
 	
 	<set name="BUILD_DIR" value="export" />
 	<classpath name="source" />
-	<assets path="assets" exclude="*.ase" />
+	<assets path="assets" exclude="*.ase,*.mp3,*.ase,*.flp" />
+	
+	<assets path="assets">
+		<music path="music.mp3" id="BGM" if="flash" />
+		<music path="music.ogg" id="BGM" unless="flash" />
+	</assets>
 	
 	<!--------------------------------LIBRARIES------------------------------------->
 

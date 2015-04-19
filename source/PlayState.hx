@@ -29,9 +29,9 @@ class PlayState extends FlxState
 		FlxG.camera.pixelPerfectRender = false;
 		
 		var spr = new FlxSprite();
-		spr.makeGraphic(5, 5, 0x0);
+		spr.makeGraphic(32, 32, 0x01);
 		//FlxSpriteUtil.drawCircle(spr, -1, -1, -1, 0x44ffffff);
 		
-		FlxG.mouse.load(spr.pixels);
+		//FlxG.mouse.load(spr.pixels);
 	}
 }

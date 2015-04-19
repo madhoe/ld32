@@ -78,8 +78,12 @@ class MenuState extends FlxState
 				help.text = "SMASH THE FUCKING KEYBOARD!!!!";
 			}
 			if (count == 4)
+			{
 				FlxG.switchState(new PlayState());
+				return;
+			}
 				
+			FlxG.sound.play(AssetPaths.smash__wav);
 			count++;
 		}
 	}

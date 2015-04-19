@@ -19,7 +19,7 @@ class GameOverState extends FlxState
 		text.alignment = "center";
 		add(text);
 		
-		text = new FlxText(0, 240 - 12, 320, "made by @maddhoe in 6.5 hrs :(", 8);
+		text = new FlxText(0, 240 - 12, 320, "made by @maddhoe in 7 hrs :(", 8);
 		text.alignment = "right";
 		add(text);
 	}

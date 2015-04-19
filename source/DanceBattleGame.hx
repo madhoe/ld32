@@ -42,8 +42,8 @@ class DanceBattleGame extends FlxSpriteGroup
 		switch (state)
 		{
 			case "menu":
-				var start = new FlxText(0, HEIGHT / 2, WIDTH, "DANCE BATTLE\nANY KEY TO START", 8);
-				start.y -= 8;
+				var start = new FlxText(0, HEIGHT / 2, WIDTH, "ANY KEY TO DANCE BATTLE", 8);
+				start.y -= 4;
 				start.alignment = "center";
 				add(start);
 			case "game":
@@ -59,6 +59,9 @@ class DanceBattleGame extends FlxSpriteGroup
 				scoreText.alignment = "right";
 				score = 0;
 				add(scoreText);
+				
+				if (FlxG.sound.music == null)
+					FlxG.sound.playMusic("BGM");
 		}
 	}
 	

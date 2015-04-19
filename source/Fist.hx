@@ -41,6 +41,7 @@ class Fist extends FlxSprite
 		if (FlxG.mouse.justPressed)
 		{
 			FlxG.camera.shake(0.025, 0.15);
+			FlxG.sound.play(AssetPaths.smash__wav);
 			animation.play("smash");
 		}
 	}
