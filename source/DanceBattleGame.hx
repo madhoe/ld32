@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxSpriteGroup;
 import flixel.text.FlxText;
+import flixel.util.FlxTimer;
 
 /**
  * ...
@@ -85,7 +86,7 @@ class DanceBattleGame extends FlxSpriteGroup
 				{
 					count++;
 					if (count >= 15)
-						FlxG.switchState(new GameOverState());
+						new FlxTimer().start(0.25, function(_) { FlxG.switchState(new GameOverState()); } );
 						
 					score += FlxG.random.int(1000, 1000000);
 					scoreText.text = Std.string(score);

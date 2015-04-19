@@ -3,7 +3,6 @@ package;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
-import flixel.util.FlxSpriteUtil;
 
 /**
  * A FlxState which can be used for the actual gameplay.
@@ -29,9 +28,9 @@ class PlayState extends FlxState
 		
 		FlxG.camera.pixelPerfectRender = false;
 		
-		spr = new FlxSprite();
+		var spr = new FlxSprite();
 		spr.makeGraphic(5, 5, 0x0);
-		FlxSpriteUtil.drawCircle(spr, -1, -1, -1, 0x44ffffff);
+		//FlxSpriteUtil.drawCircle(spr, -1, -1, -1, 0x44ffffff);
 		
 		FlxG.mouse.load(spr.pixels);
 	}

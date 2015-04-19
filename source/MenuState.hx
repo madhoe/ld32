@@ -1,8 +1,10 @@
 package;
 
 import flixel.FlxG;
+import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.text.FlxText;
+import flixel.util.FlxSpriteUtil;
 
 /**
  * A FlxState which can be used for the game's menu.
@@ -24,9 +26,11 @@ class MenuState extends FlxState
 		text = new FlxText(0, 0, 320, "KEYS", 24);
 		add(text);
 		
-		help = new FlxText(0, 240 - 16, 320, "ANY KEY TO START", 12);
+		help = new FlxText(0, 240 - 12, 320, "ANY KEY TO START", 8);
 		help.alignment = "right";
 		add(help);
+		
+		FlxG.mouse.unload();
 	}
 	
 	/**
